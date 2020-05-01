@@ -16,6 +16,8 @@ jobs:
         run: |
           yarn
           yarn build
+        env:
+          PUBLIC_PATH: ${{ secrets.PUBLIC_PATH }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
