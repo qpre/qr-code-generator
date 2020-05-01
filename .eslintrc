@@ -1,0 +1,13 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    "react/prop-types": "off",
+    "react/display-name": "off"
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  }
+}
