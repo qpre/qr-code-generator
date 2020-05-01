@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from 'react';
 
-import { Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
 import '../../tailwind.css';
@@ -12,7 +12,7 @@ const history = createBrowserHistory();
 
 const App = () => {
   return (
-    <Router history={history} basename={'/qr-code-generator'}>
+    <BrowserRouter history={history} basename={'/qr-code-generator'}>
       <Suspense fallback={<div>loading...</div>}>
         <Switch>
           {/* Home  */}
@@ -26,7 +26,7 @@ const App = () => {
           </Route>
         </Switch>
       </Suspense>
-    </Router>
+    </BrowserRouter>
   );
 };
 
