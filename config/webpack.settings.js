@@ -50,8 +50,4 @@ module.exports = {
       symlink: '../favicon.ico',
     },
   ],
-  webappConfig: {
-    logo: './src/images/logos/signet.png',
-    prefix: 'img/favicons/',
-  },
 };

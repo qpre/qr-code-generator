@@ -1,44 +1,44 @@
 // webpack.prod.js - production builds
-const LEGACY_CONFIG = "legacy";
-const MODERN_CONFIG = "modern";
+const LEGACY_CONFIG = 'legacy';
+const MODERN_CONFIG = 'modern';
 
 // node modules
-const git = require("git-rev-sync");
-const glob = require("glob-all");
-const merge = require("webpack-merge");
-const moment = require("moment");
-const path = require("path");
-const webpack = require("webpack");
+const git = require('git-rev-sync');
+const glob = require('glob-all');
+const merge = require('webpack-merge');
+const moment = require('moment');
+const path = require('path');
+const webpack = require('webpack');
 
 // webpack plugins
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const CreateSymlinkPlugin = require("create-symlink-webpack-plugin");
-const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const WebappWebpackPlugin = require("webapp-webpack-plugin");
-const WorkboxPlugin = require("workbox-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CreateSymlinkPlugin = require('create-symlink-webpack-plugin');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const WebappWebpackPlugin = require('webapp-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // config files
-const common = require("./webpack.common.js");
-const pkg = require("../package.json");
-const settings = require("./webpack.settings.js");
+const common = require('./webpack.common.js');
+const pkg = require('../package.json');
+const settings = require('./webpack.settings.js');
 
 // Configure file banner
 const configureBanner = () => {
   return {
     banner: [
-      "/*!",
-      " * @name           " + "[filebase]",
-      " * @build          " + moment().format("llll") + " ET",
-      " * @release        " + git.long() + " [" + git.branch() + "]",
-      " * @copyright      Copyright (c) " + moment().format("YYYY") + " *",
-      " */",
-      "",
-    ].join("\n"),
+      '/*!',
+      ' * @name           ' + '[filebase]',
+      ' * @build          ' + moment().format('llll') + ' ET',
+      ' * @release        ' + git.long() + ' [' + git.branch() + ']',
+      ' * @copyright      Copyright (c) ' + moment().format('YYYY') + ' *',
+      ' */',
+      '',
+    ].join('\n'),
     raw: true,
   };
 };
@@ -47,14 +47,14 @@ const configureBanner = () => {
 const configureBundleAnalyzer = (buildType) => {
   if (buildType === LEGACY_CONFIG) {
     return {
-      analyzerMode: "static",
-      reportFilename: "report-legacy.html",
+      analyzerMode: 'static',
+      reportFilename: 'report-legacy.html',
     };
   }
   if (buildType === MODERN_CONFIG) {
     return {
-      analyzerMode: "static",
-      reportFilename: "report-modern.html",
+      analyzerMode: 'static',
+      reportFilename: 'report-modern.html',
     };
   }
 };
@@ -71,7 +71,7 @@ const configureCleanWebpack = () => {
 // Configure Compression webpack plugin
 const configureCompression = () => {
   return {
-    filename: "[path].gz[query]",
+    filename: '[path].gz[query]',
     test: /\.(js|css|html|svg)$/,
     threshold: 10240,
     minRatio: 0.8,
@@ -93,9 +93,9 @@ const configureImageLoader = (buildType) => {
       test: /\.(png|jpe?g|gif|svg|webp)$/i,
       use: [
         {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "img/[name].[hash].[ext]",
+            name: 'img/[name].[hash].[ext]',
           },
         },
       ],
@@ -106,26 +106,26 @@ const configureImageLoader = (buildType) => {
       test: /\.(png|jpe?g|gif|svg|webp)$/i,
       use: [
         {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            name: "img/[name].[hash].[ext]",
+            name: 'img/[name].[hash].[ext]',
           },
         },
         {
-          loader: "img-loader",
+          loader: 'img-loader',
           options: {
             plugins: [
-              require("imagemin-gifsicle")({
+              require('imagemin-gifsicle')({
                 interlaced: true,
               }),
-              require("imagemin-mozjpeg")({
+              require('imagemin-mozjpeg')({
                 progressive: true,
                 arithmetic: false,
               }),
-              require("imagemin-optipng")({
+              require('imagemin-optipng')({
                 optimizationLevel: 5,
               }),
-              require("imagemin-svgo")({
+              require('imagemin-svgo')({
                 plugins: [{ convertPathData: false }],
               }),
             ],
@@ -142,7 +142,7 @@ const configureOptimization = (buildType) => {
     return {
       splitChunks: {
         maxSize: 244000,
-        chunks: "all",
+        chunks: 'all',
       },
       minimizer: [
         new TerserPlugin(configureTerser()),
@@ -163,7 +163,7 @@ const configureOptimization = (buildType) => {
     return {
       splitChunks: {
         maxSize: 244000,
-        chunks: "all",
+        chunks: 'all',
       },
       minimizer: [new TerserPlugin(configureTerser())],
     };
@@ -178,17 +178,17 @@ const configurePostcssLoader = (buildType) => {
       use: [
         MiniCssExtractPlugin.loader,
         {
-          loader: "css-loader",
+          loader: 'css-loader',
           options: {
             importLoaders: 2,
             sourceMap: true,
           },
         },
         {
-          loader: "resolve-url-loader",
+          loader: 'resolve-url-loader',
         },
         {
-          loader: "postcss-loader",
+          loader: 'postcss-loader',
           options: {
             sourceMap: true,
           },
@@ -200,7 +200,7 @@ const configurePostcssLoader = (buildType) => {
   if (buildType === MODERN_CONFIG) {
     return {
       test: /\.(pcss|css)$/,
-      loader: "ignore-loader",
+      loader: 'ignore-loader',
     };
   }
 };
@@ -211,16 +211,6 @@ const configureTerser = () => {
     cache: true,
     parallel: true,
     sourceMap: true,
-  };
-};
-
-// Configure Webapp webpack
-const configureWebapp = () => {
-  return {
-    logo: settings.webappConfig.logo,
-    prefix: settings.webappConfig.prefix,
-    cache: false,
-    inject: "force",
   };
 };
 
@@ -235,10 +225,10 @@ const configureWorkbox = () => {
 module.exports = [
   merge(common.legacyConfig, {
     output: {
-      filename: path.join("./js", "[name]-legacy.[chunkhash].js"),
+      filename: path.join('./js', '[name]-legacy.[chunkhash].js'),
     },
-    mode: "production",
-    devtool: "source-map",
+    mode: 'production',
+    devtool: 'source-map',
     optimization: configureOptimization(LEGACY_CONFIG),
     module: {
       rules: [
@@ -249,20 +239,19 @@ module.exports = [
     plugins: [
       new MiniCssExtractPlugin({
         path: path.resolve(__dirname, settings.paths.dist.base),
-        filename: path.join("./css", "[name].[chunkhash].css"),
+        filename: path.join('./css', '[name].[chunkhash].css'),
       }),
       new webpack.BannerPlugin(configureBanner()),
-      new WebappWebpackPlugin(configureWebapp()),
       new CreateSymlinkPlugin(settings.createSymlinkConfig, true),
       new BundleAnalyzerPlugin(configureBundleAnalyzer(LEGACY_CONFIG)),
     ],
   }),
   merge(common.modernConfig, {
     output: {
-      filename: path.join("./js", "[name].[chunkhash].js"),
+      filename: path.join('./js', '[name].[chunkhash].js'),
     },
-    mode: "production",
-    devtool: "source-map",
+    mode: 'production',
+    devtool: 'source-map',
     optimization: configureOptimization(MODERN_CONFIG),
     module: {
       rules: [
