@@ -12,7 +12,7 @@ const history = createBrowserHistory();
 
 const App = () => {
   return (
-    <Router history={history}>
+    <Router history={history} basename={'/qr-code-generator'}>
       <Suspense fallback={<div>loading...</div>}>
         <Switch>
           {/* Home  */}
