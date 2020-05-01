@@ -127,10 +127,7 @@ const legacyConfig = {
       configureBabelLoader(Object.values(pkg.browserslist.legacyBrowsers)),
     ],
   },
-  plugins: [
-    new CopyWebpackPlugin(settings.copyWebpackConfig),
-    new ManifestPlugin(configureManifest('manifest-legacy.json')),
-  ],
+  plugins: [new ManifestPlugin(configureManifest('manifest-legacy.json'))],
 };
 
 // Modern webpack config

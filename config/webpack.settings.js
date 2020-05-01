@@ -28,12 +28,6 @@ module.exports = {
   entries: {
     app: 'index.js',
   },
-  copyWebpackConfig: [
-    {
-      from: './src/serviceworkers/workbox-catch-handler.js',
-      to: '[name].[ext]',
-    },
-  ],
   devServerConfig: {
     public: () => process.env.DEVSERVER_PUBLIC || 'http://localhost:1234',
     host: () => process.env.DEVSERVER_HOST || 'localhost',
