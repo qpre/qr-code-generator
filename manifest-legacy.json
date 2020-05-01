@@ -1,15 +1,15 @@
 {
-  "app~970f9218.css": "/css/app~970f9218.9e525a7efff1af1ba005.css",
-  "app~970f9218.js": "/js/app~970f9218-legacy.9e525a7efff1af1ba005.js",
-  "app~970f9218.js.map": "/js/app~970f9218-legacy.9e525a7efff1af1ba005.js.map",
-  "vendors~app~253ae210.js": "/js/vendors~app~253ae210-legacy.85eedaf6676414ce302d.js",
-  "vendors~app~253ae210.js.map": "/js/vendors~app~253ae210-legacy.85eedaf6676414ce302d.js.map",
-  "js/2-legacy.907dd494990b8ac417a8.js": "/js/2-legacy.907dd494990b8ac417a8.js",
-  "js/2-legacy.907dd494990b8ac417a8.js.map": "/js/2-legacy.907dd494990b8ac417a8.js.map",
-  "js/3-legacy.c596c6b6458b71281b14.js": "/js/3-legacy.c596c6b6458b71281b14.js",
-  "js/3-legacy.c596c6b6458b71281b14.js.map": "/js/3-legacy.c596c6b6458b71281b14.js.map",
-  "js/4-legacy.708fcb65ddf7a5c7dc33.js": "/js/4-legacy.708fcb65ddf7a5c7dc33.js",
-  "js/4-legacy.708fcb65ddf7a5c7dc33.js.map": "/js/4-legacy.708fcb65ddf7a5c7dc33.js.map",
-  "css/app~970f9218.9e525a7efff1af1ba005.css.map": "/css/app~970f9218.9e525a7efff1af1ba005.css.map",
-  "index.html": "/index.html"
+  "app~970f9218.css": "/qr-code-generator/css/app~970f9218.bb20e5466fde1610420d.css",
+  "app~970f9218.js": "/qr-code-generator/js/app~970f9218-legacy.bb20e5466fde1610420d.js",
+  "app~970f9218.js.map": "/qr-code-generator/js/app~970f9218-legacy.bb20e5466fde1610420d.js.map",
+  "vendors~app~253ae210.js": "/qr-code-generator/js/vendors~app~253ae210-legacy.85eedaf6676414ce302d.js",
+  "vendors~app~253ae210.js.map": "/qr-code-generator/js/vendors~app~253ae210-legacy.85eedaf6676414ce302d.js.map",
+  "js/2-legacy.907dd494990b8ac417a8.js": "/qr-code-generator/js/2-legacy.907dd494990b8ac417a8.js",
+  "js/2-legacy.907dd494990b8ac417a8.js.map": "/qr-code-generator/js/2-legacy.907dd494990b8ac417a8.js.map",
+  "js/3-legacy.c596c6b6458b71281b14.js": "/qr-code-generator/js/3-legacy.c596c6b6458b71281b14.js",
+  "js/3-legacy.c596c6b6458b71281b14.js.map": "/qr-code-generator/js/3-legacy.c596c6b6458b71281b14.js.map",
+  "js/4-legacy.708fcb65ddf7a5c7dc33.js": "/qr-code-generator/js/4-legacy.708fcb65ddf7a5c7dc33.js",
+  "js/4-legacy.708fcb65ddf7a5c7dc33.js.map": "/qr-code-generator/js/4-legacy.708fcb65ddf7a5c7dc33.js.map",
+  "css/app~970f9218.bb20e5466fde1610420d.css.map": "/qr-code-generator/css/app~970f9218.bb20e5466fde1610420d.css.map",
+  "index.html": "/qr-code-generator/index.html"
 }
