@@ -114,9 +114,9 @@ const baseConfig = {
       alwaysNotify: true,
     }),
     new HtmlWebpackPlugin(configureHtml()),
-    new WebpackNoModulePlugin({
-      filePatterns: ['**/**-legacy.**.js'],
-    }),
+    // new WebpackNoModulePlugin({
+    //   filePatterns: ['**/**/**-legacy.**.js'],
+    // }),
   ],
 };
 

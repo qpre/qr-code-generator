@@ -245,26 +245,26 @@ module.exports = [
       new CreateSymlinkPlugin(settings.createSymlinkConfig, true),
       new BundleAnalyzerPlugin(configureBundleAnalyzer(LEGACY_CONFIG)),
     ],
-  }),
-  merge(common.modernConfig, {
-    output: {
-      filename: path.join('./js', '[name].[chunkhash].js'),
-    },
-    mode: 'production',
-    devtool: 'source-map',
-    optimization: configureOptimization(MODERN_CONFIG),
-    module: {
-      rules: [
-        configurePostcssLoader(MODERN_CONFIG),
-        configureImageLoader(MODERN_CONFIG),
-      ],
-    },
-    plugins: [
-      new CleanWebpackPlugin(configureCleanWebpack()),
-      new webpack.BannerPlugin(configureBanner()),
-      new ImageminWebpWebpackPlugin(),
-      new WorkboxPlugin.GenerateSW(configureWorkbox()),
-      new BundleAnalyzerPlugin(configureBundleAnalyzer(MODERN_CONFIG)),
-    ],
+    // }),
+    // merge(common.modernConfig, {
+    //   output: {
+    //     filename: path.join('./js', '[name].[chunkhash].js'),
+    //   },
+    //   mode: 'production',
+    //   devtool: 'source-map',
+    //   optimization: configureOptimization(MODERN_CONFIG),
+    //   module: {
+    //     rules: [
+    //       configurePostcssLoader(MODERN_CONFIG),
+    //       configureImageLoader(MODERN_CONFIG),
+    //     ],
+    //   },
+    //   plugins: [
+    //     new CleanWebpackPlugin(configureCleanWebpack()),
+    //     new webpack.BannerPlugin(configureBanner()),
+    //     new ImageminWebpWebpackPlugin(),
+    //     new WorkboxPlugin.GenerateSW(configureWorkbox()),
+    //     new BundleAnalyzerPlugin(configureBundleAnalyzer(MODERN_CONFIG)),
+    //   ],
   }),
 ];
